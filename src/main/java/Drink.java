@@ -1,4 +1,4 @@
-public enum Beverage {
+public enum Drink {
     COFFEE,
     TEA,
     CHOCOLATE

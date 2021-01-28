@@ -7,10 +7,10 @@ class DrinkMakerProtocolTest {
     @Test
     void should_order_coffee_without_sugar() {
         DrinkMakerProtocol drinkMakerProtocol = new DrinkMakerProtocol();
-        IncomingOrder incomingOrder = new IncomingOrder(Beverage.COFFEE, 0);
+        Order order = new Order(Drink.COFFEE, 0);
 
-        String formatedOrder = drinkMakerProtocol.transform(incomingOrder);
+        String formattedOrder = drinkMakerProtocol.format(order);
 
-        assertEquals("C::", formatedOrder);
+        assertEquals("C::", formattedOrder);
     }
 }

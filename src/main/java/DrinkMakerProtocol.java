@@ -1,6 +1,6 @@
 public class DrinkMakerProtocol {
 
-    public String transform(IncomingOrder incomingOrder) {
+    public String format(Order order) {
         return "C::";
     }
 }
