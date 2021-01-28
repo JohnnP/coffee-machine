@@ -5,10 +5,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class DrinkMakerProtocolTest {
 
     @Test
-    void test() {
+    void should_order_coffee_without_sugar() {
         DrinkMakerProtocol drinkMakerProtocol = new DrinkMakerProtocol();
-        String formatedOrder = drinkMakerProtocol.transform(null);
+        IncomingOrder incomingOrder = new IncomingOrder(Beverage.COFFEE, 0);
 
-        assert(formatedOrder).equals("");
+        String formatedOrder = drinkMakerProtocol.transform(incomingOrder);
+
+        assertEquals("C::", formatedOrder);
     }
 }
