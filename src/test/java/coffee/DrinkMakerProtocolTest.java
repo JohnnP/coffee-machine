@@ -1,39 +1,51 @@
 package coffee;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import static coffee.Drink.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class DrinkMakerProtocolTest {
+
+    private DrinkMakerProtocol drinkMakerProtocol;
+    private String formattedOrder;
+
+    @BeforeAll
+    void setup() {
+         drinkMakerProtocol = new DrinkMakerProtocol();
+    }
 
     @Test
     void should_order_coffee_without_sugar() {
-        DrinkMakerProtocol drinkMakerProtocol = new DrinkMakerProtocol();
-        Order order = new Order(COFFEE, 0);
-
-        String formattedOrder = drinkMakerProtocol.format(order);
-
-        assertEquals("C::", formattedOrder);
+        when_order(COFFEE, without_sugar());
+        formatter_should_return("C::");
     }
 
     @Test
     void should_order_tea_without_sugar() {
-        DrinkMakerProtocol drinkMakerProtocol = new DrinkMakerProtocol();
-        Order order = new Order(TEA, 0);
-
-        String formattedOrder = drinkMakerProtocol.format(order);
-
-        assertEquals("T::", formattedOrder);
+       when_order(TEA, without_sugar());
+       formatter_should_return("T::");
     }
 
     @Test
     void should_order_chocolate_without_sugar() {
-        DrinkMakerProtocol drinkMakerProtocol = new DrinkMakerProtocol();
-        Order order = new Order(CHOCOLATE, 0);
+        when_order(CHOCOLATE, without_sugar());
+        formatter_should_return("C::");
+    }
 
-        String formattedOrder = drinkMakerProtocol.format(order);
+    void when_order(Drink drink, int i) {
+        Order order = new Order(drink, 0);
+        formattedOrder = drinkMakerProtocol.format(order);
+    }
 
-        assertEquals("H::", formattedOrder);
+    void formatter_should_return(String expectedString) {
+        assertEquals(expectedString, formattedOrder);
+    }
+
+    private int without_sugar() {
+        return 0;
     }
 }
