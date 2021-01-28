@@ -1,3 +1,5 @@
+package coffee;
+
 public class Order {
 
     private Drink drink;
