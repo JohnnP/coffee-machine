@@ -16,4 +16,14 @@ class DrinkMakerProtocolTest {
 
         assertEquals("C::", formattedOrder);
     }
+
+    @Test
+    void should_order_tea_without_sugar() {
+        DrinkMakerProtocol drinkMakerProtocol = new DrinkMakerProtocol();
+        Order order = new Order(TEA, 0);
+
+        String formattedOrder = drinkMakerProtocol.format(order);
+
+        assertEquals("T::", formattedOrder);
+    }
 }
