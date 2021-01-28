@@ -10,19 +10,7 @@ public class Order {
         this.sugar = sugar;
     }
 
-    Drink getBeverage() {
-        return drink;
-    }
-
-    void setBeverage(Drink drink) {
-        this.drink = drink;
-    }
-
-    int getSugar() {
-        return sugar;
-    }
-
-    void setSugar(int sugar) {
-        this.sugar = sugar;
+    String getDrinkCode() {
+        return drink.getCode();
     }
 }

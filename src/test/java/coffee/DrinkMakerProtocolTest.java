@@ -33,7 +33,7 @@ class DrinkMakerProtocolTest {
     @Test
     void should_order_chocolate_without_sugar() {
         when_order(CHOCOLATE, without_sugar());
-        formatter_should_return("C::");
+        formatter_should_return("H::");
     }
 
     void when_order(Drink drink, int i) {
