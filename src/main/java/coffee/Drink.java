@@ -1,7 +1,18 @@
 package coffee;
 
 public enum Drink {
-    COFFEE,
-    TEA,
-    CHOCOLATE
+
+    COFFEE("C"),
+    TEA("T"),
+    CHOCOLATE("H");
+
+    private String code;
+
+    Drink(String code) {
+        this.code = code;
+    }
+
+    String getCode() {
+        return code;
+    }
 }

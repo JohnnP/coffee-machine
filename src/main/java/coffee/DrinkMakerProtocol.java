@@ -6,11 +6,11 @@ public class DrinkMakerProtocol {
 
     public String format(Order order) {
         if(CHOCOLATE == order.getBeverage()) {
-            return "H::";
+            return order.getBeverage().getCode() + "::";
         }
         if(TEA == order.getBeverage()) {
-            return "T::";
+            return order.getBeverage().getCode() + "::";
         }
-        return "C::";
+        return order.getBeverage().getCode() + "::";
     }
 }
