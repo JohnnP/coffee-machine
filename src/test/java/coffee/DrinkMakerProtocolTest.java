@@ -10,6 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class DrinkMakerProtocolTest {
 
+    public static final int WITHOUT_SUGAR = 0;
+
     private DrinkMakerProtocol drinkMakerProtocol;
     private String formattedOrder;
 
@@ -20,24 +22,24 @@ class DrinkMakerProtocolTest {
 
     @Test
     void should_order_coffee_without_sugar() {
-        when_order(COFFEE, without_sugar());
+        when_order(COFFEE, WITHOUT_SUGAR);
         formatter_should_return("C::");
     }
 
     @Test
     void should_order_tea_without_sugar() {
-       when_order(TEA, without_sugar());
+        when_order(TEA, WITHOUT_SUGAR);
        formatter_should_return("T::");
     }
 
     @Test
     void should_order_chocolate_without_sugar() {
-        when_order(CHOCOLATE, without_sugar());
+        when_order(CHOCOLATE, WITHOUT_SUGAR);
         formatter_should_return("H::");
     }
 
     void when_order(Drink drink, int i) {
-        Order order = new Order(drink, 0);
+        Order order = new Order(drink, WITHOUT_SUGAR);
         formattedOrder = drinkMakerProtocol.format(order);
     }
 
@@ -45,7 +47,4 @@ class DrinkMakerProtocolTest {
         assertEquals(expectedString, formattedOrder);
     }
 
-    private int without_sugar() {
-        return 0;
-    }
 }
