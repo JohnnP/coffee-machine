@@ -12,6 +12,7 @@ class DrinkMakerProtocolTest {
 
     public static final int WITHOUT_SUGAR = 0;
     private static final int WITH_ONE_SUGAR = 1;
+    private static final int WITH_TWO_SUGAR = 2;
 
     private DrinkMakerProtocol drinkMakerProtocol;
     private String formattedOrder;
@@ -31,6 +32,12 @@ class DrinkMakerProtocolTest {
     void should_order_coffee_with_one_sugar() {
         when_order(COFFEE, WITH_ONE_SUGAR);
         formatter_should_return("C:1:0");
+    }
+
+    @Test
+    void should_order_coffee_with_two_sugar() {
+        when_order(COFFEE, WITH_TWO_SUGAR);
+        formatter_should_return("C:2:0");
     }
 
     @Test
