@@ -13,4 +13,8 @@ public class Order {
     String getDrinkCode() {
         return drink.getCode();
     }
+
+    int getSugar() {
+        return sugar;
+    }
 }

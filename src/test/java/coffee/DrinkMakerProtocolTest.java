@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class DrinkMakerProtocolTest {
 
     public static final int WITHOUT_SUGAR = 0;
+    private static final int WITH_ONE_SUGAR = 1;
 
     private DrinkMakerProtocol drinkMakerProtocol;
     private String formattedOrder;
@@ -27,6 +28,12 @@ class DrinkMakerProtocolTest {
     }
 
     @Test
+    void should_order_coffee_with_one_sugar() {
+        when_order(COFFEE, WITH_ONE_SUGAR);
+        formatter_should_return("C:1:0");
+    }
+
+    @Test
     void should_order_tea_without_sugar() {
         when_order(TEA, WITHOUT_SUGAR);
        formatter_should_return("T::");
@@ -38,8 +45,8 @@ class DrinkMakerProtocolTest {
         formatter_should_return("H::");
     }
 
-    void when_order(Drink drink, int i) {
-        Order order = new Order(drink, WITHOUT_SUGAR);
+    void when_order(Drink drink, int sugar) {
+        Order order = new Order(drink, sugar);
         formattedOrder = drinkMakerProtocol.format(order);
     }
 
