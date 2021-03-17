@@ -9,6 +9,7 @@ public class DrinkMakerProtocol {
     }
 
     private String getDrinkCode(Order order) {
+        System.out.println("toto");
         return order.getDrinkCode();
     }
 
